@@ -15,3 +15,7 @@ script:
 
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN
+
+notifications:
+  slack: youtyuk:kGh44GvJ7g3O3nmWWdq4eSMG
+  email: false

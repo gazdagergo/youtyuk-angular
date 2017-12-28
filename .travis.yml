@@ -12,6 +12,7 @@ before_script:
   - npm install -g @angular/cli
 
 script:
+  - node ./scripts/replace.build
   - ng build --prod --aot
 
 after_success:

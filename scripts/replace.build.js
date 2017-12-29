@@ -9,7 +9,7 @@ const options = {
   from: [
     '{FIREBASE_API_KEY}',
     '{MESSAGING_SENDER_ID}',
-    '{PROJECT_ID}'
+    /{PROJECT_ID}/g
   ],
   to: [
     firebaseApiKey,

@@ -5,7 +5,7 @@ const messagingSenderId = process.env.MESSAGING_SENDER_ID;
 const projectId = process.env.PROJECT_ID;
 
 const options = {
-  files: 'environments/environment.prod.ts',
+  files: '../src/environments/environment.prod.ts',
   from: [
     '{FIREBASE_API_KEY}',
     '{MESSAGING_SENDER_ID}',

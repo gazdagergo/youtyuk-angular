@@ -21,7 +21,7 @@ const options = {
 
 try {
   let changedFiles = replace.sync(options);
-  console.log('FirebaseApiKey set');
+  console.log('Environmental variables set in environment.prod.ts');
 }
 catch (error) {
   console.error('Error occurred:', error);

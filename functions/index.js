@@ -12,7 +12,7 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
-const payHeper = require('./barionHelper');
+const payHeper = require('./__mock__/barionHelper');
 
 exports.newPayment = functions.database.ref('/payments/{PosPayId}').onCreate(event => {
   let paymentId;

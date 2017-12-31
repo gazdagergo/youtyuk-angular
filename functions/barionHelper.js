@@ -1,9 +1,10 @@
-var request = require('request');
+const request = require('request');
+const barionConfig = require('./barionConfig');
 
 function postRequest() {
   return new Promise((resolve, reject) => {
     var json = {
-      "POSKey": "199122ddbf344141a14d135e7225b14a",
+      "POSKey": barionConfig.POSKey,
       "PaymentType": "Immediate",
       "GuestCheckOut": true,
       "FundingSources": ["Bankcard"],

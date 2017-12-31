@@ -13,11 +13,7 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 const payHeper = require('./barionHelper');
-payHeper.initPayment();
-// const myPayment;
 
-/* exports.writeExample = functions.database.ref('/payments')
-  .onWrite(event => {
-    myPayment = initPayment();
-  }); */
-
+exports.writeExample = functions.database.ref('/payments').onWrite(event => {
+  payHeper.initPayment();
+});

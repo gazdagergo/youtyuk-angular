@@ -27,7 +27,7 @@ function postRequest() {
     };
 
     var options = {
-      url: 'https://api.test.barion.com//v2/Payment/Start',
+      url: 'https://api.test.barion.com/v2/Payment/Start',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -46,6 +46,6 @@ function postRequest() {
 
 module.exports = {
   initPayment: function() {
-    result = postRequest().then(res => console.log(res));
+    return postRequest();
   }
 };

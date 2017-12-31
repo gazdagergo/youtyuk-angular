@@ -14,6 +14,10 @@ admin.initializeApp(functions.config().firebase);
 
 const payHeper = require('./barionHelper');
 
-exports.writeExample = functions.database.ref('/payments').onWrite(event => {
-  payHeper.initPayment();
+exports.newPayment = functions.database.ref('/payments/{PosPayId}').onCreate(event => {
+  let paymentId;
+  payHeper.initPayment().then(response => {
+    paymentId = response.PaymentId;
+    console.log('paymentId', paymentId);
+  });
 });

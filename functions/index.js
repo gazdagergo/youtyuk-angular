@@ -18,6 +18,9 @@ exports.newPayment = functions.database.ref('/payments/{PosPayId}').onCreate(eve
   let paymentId;
   payHeper.initPayment().then(response => {
     paymentId = response.PaymentId;
-    console.log('paymentId', paymentId);
+    const PosPayId = event.params.PosPayId;
+    admin.database().ref(`payments/${PosPayId}`).update({
+      paymentId: paymentId + PosPayId
+    });
   });
 });

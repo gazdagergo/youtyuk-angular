@@ -17,7 +17,6 @@ function mockGet() {
   });
 }
 
-
 module.exports = {
   initPayment: function() {
     return mockGet();

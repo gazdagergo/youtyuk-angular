@@ -1,9 +1,21 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+
 
 @Injectable()
 export class PaymentService {
+  payments: AngularFireList<any>;
 
-  constructor() { }
+  constructor(db: AngularFireDatabase) {
+    const payments = db.list('/payments');
+    this.payments = payments;
+  }
+
+  newPayment() {
+    this.payments.push({
+      paymentId: 'fooo'
+    });
+  }
 
   getPaymentUrl() {
     return new Promise((resolve) => {

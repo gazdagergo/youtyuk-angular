@@ -20,4 +20,9 @@ export class CheckoutComponent implements OnInit {
     })
   }
 
+  startPayment(){
+    this.paymentService.newPayment();
+    console.log('payment started');
+  }
+
 }

@@ -14,15 +14,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   redirectToPayment(){
-    this.paymentService.getPaymentUrl()
-    .then((url: string) => {
-      window.location.href=url;
+    this.paymentService.getPaymentUrlParam()
+    .then((urlParam: string) => {
+      window.location.href=`http://gazdagergo.com/?p=${urlParam}`;
     })
   }
-
-  startPayment(){
-    this.paymentService.newPayment();
-    console.log('payment started');
-  }
-
 }

@@ -15,25 +15,25 @@ export class PaymentService {
   }
 
   newPayment() {
-    this.payments.push({
-      paymentId: 0
-    })
-    .then(item => {
-      const s = this.db.list(`/payments/${item.key}`)
-      .valueChanges()
-      .subscribe(i => {
-        console.log(i, i[0])
-        if (i[0] !== 0) {
-          s.unsubscribe();
-        }
+    return new Promise((resolve) => {
+      this.payments.push({
+        paymentId: 0
       })
+      .then(item => {
+        const s = this.db.list(`/payments/${item.key}`)
+        .valueChanges()
+        .subscribe(i => {
+          if (i[0] !== 0) {
+            s.unsubscribe();
+            resolve(i[0]);
+          }
+        })
+      });
     });
   }
 
-  getPaymentUrl() {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve("https://444.hu"), 1000)
-    })
+  getPaymentUrlParam() {
+    return this.newPayment()
   }
 
 }

@@ -11,12 +11,15 @@ import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { FarmersComponent } from './farmers/farmers.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { PaymentService } from './payment.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    FarmersComponent
+    FarmersComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,10 @@ import { FarmersComponent } from './farmers/farmers.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    PaymentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
